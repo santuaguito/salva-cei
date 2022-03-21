@@ -1,0 +1,43 @@
+h1{
+    padding: 10px;
+}
+
+
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.nav{
+    text-align: right;
+}
+
+.NavMenu{ 
+    list-style: none;
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 5px;
+ 
+}
+
+.NavMenu li{
+    float: left;
+    margin-top: 5px;
+}
+
+.boton{
+    background-color: bisque;
+}
+.boton:hover{
+    background-color: coral;
+}
+ul li button a{
+    color: black;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 20px;
+
+    
+}
+ul li{
+    margin: 3px;
+}
