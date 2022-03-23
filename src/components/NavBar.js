@@ -1,4 +1,5 @@
 import React from 'react';
+import CarWidget from './CarWidget';
 import './NavBar.css';
 
 
@@ -18,7 +19,7 @@ function NavBar() {
                 
             </nav>
             
-           
+           <CarWidget/>
         </div>
         
     )

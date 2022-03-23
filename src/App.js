@@ -1,18 +1,22 @@
 import React from 'react';
 import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-       <div className = "container">
+class App extends React.Component{
+  
+  render(){
+    const greating = "Bienvenidos a Salva Tienda de ropa";
+    return(
+      <div className = "container">
         <NavBar/>
-        
-        <h2>Bienvenidos a Salva</h2>
+        <ItemListContainer greating={ greating }/>
         
       </div>
-    </div>
-  );
+    )
+    
+  }
+ 
 }
 
 export default App;
