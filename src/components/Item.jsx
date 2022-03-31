@@ -1,18 +1,25 @@
-import React from "react"
+import React from "react";
+import ItemCount from "./ItemCount";
+import '../components/ItemListContainer.css';
+
 
 
 
 const Item = ({producto}) => {
 
 
-    return (       
-            <div key={producto.id} className="card w-50 mt-5" >
+    
+
+
+    return (      
+        <div className="card">
+            <div key={producto.id} >
                     <div className="card-header">
-                        {producto.title}
+                        {producto.Descripcion}
                     </div>
                     <div className="card-body">
-                        <img src={producto.imgaeID} alt="foto" />
-                        {producto.precio}
+                        <img width="250" height="250" src={producto.Imagen} alt="foto" />
+                        {producto.Precio}
                        
                     </div>
                     <div className="card-footer">
@@ -21,9 +28,10 @@ const Item = ({producto}) => {
                                 Detalle de producto
                             </button>
                     </div>
-                    
+
+                   <ItemCount/>
                 </div>
-        
+        </div>
     )
 }
 

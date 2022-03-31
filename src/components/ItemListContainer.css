@@ -3,3 +3,17 @@
     text-align: center;
     width: 100%;
 }
+
+.card {
+    display: grid;
+    grid-template-rows: repeat(3, 0fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 35px;
+    text-align: center;
+    
+  }
+
+  .button{
+      text-align: center;
+  }

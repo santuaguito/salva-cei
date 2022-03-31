@@ -1,4 +1,4 @@
-export const itemsData =[
+const itemsData =[
     {
     "id":"1",
     "destacado":"true",
@@ -94,3 +94,4 @@ export const itemsData =[
 
 
 
+export default itemsData;
