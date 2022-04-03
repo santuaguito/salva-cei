@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import '../components/ItemListContainer.css';
-import itemsData from './api';
+
 
 
 function ItemCount ({stock, initial, onAdd})  {
@@ -25,7 +25,6 @@ function ItemCount ({stock, initial, onAdd})  {
         }
     }
 
-  
 
     return (
         
@@ -34,8 +33,7 @@ function ItemCount ({stock, initial, onAdd})  {
             <label>{count}</label>
             <button onClick={restar}>-</button>
             <br/>
-          
-                <button >Agregar Al carrito</button>                
+            <button >Agregar Al carrito</button>                
             
            
             
