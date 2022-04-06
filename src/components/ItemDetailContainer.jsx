@@ -21,18 +21,24 @@ function ItemDeteailContainer (){
     });
   }, []);
   console.log(itemDetail);
+
+  <>
+  {itemDetail === undefined ? (
+    <p>loading</p>
+  ) : (
+    <ItemDetail
+      id={itemDetail.id}
+      Descripcion={itemDetail.Descripcion}
+      Imagen={itemDetail.Imagen}
+      Precio={itemDetail.Precio}
+    />
+  )}
+</>
   return (
     <>
-      {itemDetail === undefined ? (
-        <p>loading</p>
-      ) : (
-        <ItemDetail
-          id={itemDetail.id}
-          Descripcion={itemDetail.Descripcion}
-          Imagen={itemDetail.Imagen}
-          Precio={itemDetail.Precio}
-        />
-      )}
+        
+    {loading ? "Cargando Información..." : <ItemDetail item={item} />}
+
     </>
   );
 };

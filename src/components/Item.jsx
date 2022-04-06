@@ -1,6 +1,7 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 import '../components/ItemListContainer.css';
+import ItemDetail from "./ItemDetail";
 
 
 
@@ -27,6 +28,7 @@ const Item = ({producto}) => {
                             <button className="btn btn-outline-primary btn-block">
                                 Detalle de producto
                             </button>
+                            
                     </div>
 
                    <ItemCount/>
