@@ -1,46 +1,51 @@
+import {useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
 
-import React from "react";
-import ItemDetail from './ItemDetail'
-import itemsData from './api';
+
+export const ItemDeteailContainer =({greeting}) => {
+
+ 
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState (false);
+
+  const {id} = useParams();
+  console.log(product);
+
+  
+
+  useEffect(() =>{
+    const URL = 'https://mocki.io/v1/7f133f03-9231-4874-8622-4be9855c5ae4';
+    const getItem = async() =>{
+      try{
+        const response = await fetch(URL);
+        const data = await response.json();
+        console.log(data, "soy data");
+        const dataId = data.filter (element=>element.id == id)
+        setProduct(dataId);
+      }catch{
+        setError(true);
+      }finally{
+        setLoading(false);
+      }
+    };
+    getItem();
+  },[id]);
+  
+  
 
 
-const getItems = new Promise((res, rej) => {
-  setTimeout(() => {
-    res([
-        getItems(itemsData)
-    ]);
-  }, 2000);
-});
-
-function ItemDeteailContainer (){
-  const [itemDetail, setItemDetail] = React.useState();
-
-  React.useEffect(() => {
-    getItems.then((res) => {
-      setItemDetail(res[0]);
-    });
-  }, []);
-  console.log(itemDetail);
-
-  <>
-  {itemDetail === undefined ? (
-    <p>loading</p>
-  ) : (
-    <ItemDetail
-      id={itemDetail.id}
-      Descripcion={itemDetail.Descripcion}
-      Imagen={itemDetail.Imagen}
-      Precio={itemDetail.Precio}
-    />
-  )}
-</>
-  return (
+  return(
     <>
-        
-    {loading ? "Cargando Información..." : <ItemDetail item={item} />}
-
+      
+      {product? <ItemDetail product={product}/> : <h1>Cargando...</h1>}
+    
+    
     </>
   );
+
+
 };
 
-export default ItemDeteailContainer;
+

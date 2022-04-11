@@ -1,23 +1,15 @@
-import {useState, useEffect} from 'react'
+import React from 'react'
 import Item from './Item';
-import itemsData from './api';
 
 
-function ItemList(){
-    const [items ,setItems] = useState([]);
-    useEffect(() => {
-        setTimeout(()=>{
-            setItems(itemsData);
-            console.log(items);
-        }, 2000);
-    });
-    return(
-        <div className='card'>
-            {itemsData.map(e=>
-                <Item key={e.id} producto ={e} />) }
-                
-        </div>
+export const ItemList = ({products}) => {
+    
+    return (
+        <div>
+        {products.map((product) =>(
+            <Item key ={product.id} product ={product}/>
+        ))}
+        </div>    
     )
 }
 
-export default ItemList

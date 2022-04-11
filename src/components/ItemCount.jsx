@@ -3,7 +3,7 @@ import '../components/ItemListContainer.css';
 
 
 
-function ItemCount ({stock, initial, onAdd})  {
+function ItemCount ({Stock, initial, onAdd})  {
 
 
     const [count, setCount] = useState(0)
@@ -12,7 +12,7 @@ function ItemCount ({stock, initial, onAdd})  {
 
 
     function sumar(){
-        if(count >= 0){
+        if(count >= 0 && count < Stock ){
             setCount(count + 1)
                 
 
@@ -26,6 +26,8 @@ function ItemCount ({stock, initial, onAdd})  {
     }
 
 
+
+
     return (
         
         <div>
@@ -33,7 +35,8 @@ function ItemCount ({stock, initial, onAdd})  {
             <label>{count}</label>
             <button onClick={restar}>-</button>
             <br/>
-            <button >Agregar Al carrito</button>                
+            <button onClick ={()=>onAdd(count)}>Agregar Al carrito</button> 
+
             
            
             

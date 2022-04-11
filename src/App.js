@@ -1,33 +1,36 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import { ItemListContainer } from './components/ItemListContainer';
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Item from './components/Item';
-import ItemDetail from './components/ItemDetail';
+import { ItemDeteailContainer } from './components/ItemDetailContainer';
+import Cart from './components/cart';
 
-class App extends React.Component{
+
+
+const App= () => {
+  const branch ="Tienda Online";
   
-  render(){
-    const greating = "Bienvenidos a Salva Tienda de ropa";
     return(
       <BrowserRouter>
        <NavBar/>
       <Routes>
+      <Route patch="/" element={<ItemListContainer greating={ branch }/>}/>
+      <Route path='/' element={<ItemListContainer greating={ branch }/>}/>
+      <Route patch='/itemDetail/:id' element={ItemDeteailContainer}/>
+      <Route patch ='/cart' element={Cart}/> 
       {/* <Route path="/" element={Inicio}/> */}
-      <Route path='/' element={Item}/>
       {/* <Route path="/" element={Nosotros}/>
       <Route path="/" element={Contacto}/> */}
       </Routes>
       <div className = "container">
        
-        <ItemListContainer greating={ greating }/>
             
       </div>
       </BrowserRouter>
     )
     
-  }
+  
  
 }
 

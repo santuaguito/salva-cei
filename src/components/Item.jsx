@@ -1,17 +1,19 @@
-import React from "react";
+import {useState} from "react";
 import ItemCount from "./ItemCount";
 import '../components/ItemListContainer.css';
-import ItemDetail from "./ItemDetail";
+import {Link} from 'react-router-dom';    
+
+
 
 
 
 
 const Item = ({producto}) => {
 
-
-    
-
-
+    const [cart, setCart] = useState(false)
+    const onAdd =()=> {
+        setCart (true)
+    }
     return (      
         <div className="card">
             <div key={producto.id} >
@@ -24,14 +26,23 @@ const Item = ({producto}) => {
                        
                     </div>
                     <div className="card-footer">
-                       
+                            <Link to={`/itemDetail/${producto.id}`}>
                             <button className="btn btn-outline-primary btn-block">
-                                Detalle de producto
+                                Detalle de producto 
                             </button>
-                            
+                            </Link>
                     </div>
 
-                   <ItemCount/>
+                    {cart? 
+                    <div> 
+                        <Link to = {'/cart'}>
+                            <button> 
+                                Finalizar Compra
+                            </button>
+                        </Link>
+                    </div>:  <ItemCount Stock = {producto.Stock} onAdd = {()=> onAdd()} /> }
+
+                  
                 </div>
         </div>
     )
