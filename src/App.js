@@ -15,10 +15,10 @@ const App= () => {
       <BrowserRouter>
        <NavBar/>
       <Routes>
-      <Route patch="/" element={<ItemListContainer greating={ branch }/>}/>
+      <Route path="/" element={<ItemListContainer greating={ branch }/>}/>
       <Route path='/' element={<ItemListContainer greating={ branch }/>}/>
-      <Route patch='/itemDetail/:id' element={ItemDeteailContainer}/>
-      <Route patch ='/cart' element={Cart}/> 
+      <Route path='/itemDetail/:id' element={<ItemDeteailContainer/>}/>
+      <Route path ='/cart' element={Cart}/> 
       {/* <Route path="/" element={Inicio}/> */}
       {/* <Route path="/" element={Nosotros}/>
       <Route path="/" element={Contacto}/> */}

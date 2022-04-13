@@ -3,7 +3,7 @@ import itemsData from './api';
 import Item from './Item';
 import ItemList from './ItemList'
 
-export const ItemListContainer =({greating}) => {
+export const ItemListContainer =({}) => {
 
 
   const [product, setProduct] = useState({});

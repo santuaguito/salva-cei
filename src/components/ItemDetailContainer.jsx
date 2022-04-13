@@ -6,31 +6,38 @@ import ItemDetail from "./ItemDetail";
 export const ItemDeteailContainer =({greeting}) => {
 
  
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState (false);
 
-  const {id} = useParams();
-  console.log(product);
 
   
+  const {id} = useParams();
+
 
   useEffect(() =>{
+  
+
     const URL = 'https://mocki.io/v1/7f133f03-9231-4874-8622-4be9855c5ae4';
+
     const getItem = async() =>{
       try{
         const response = await fetch(URL);
         const data = await response.json();
-        console.log(data, "soy data");
-        const dataId = data.filter (element=>element.id == id)
+        const dataId = data.filter (element=>element.id === id)
         setProduct(dataId);
+        
+       
       }catch{
         setError(true);
       }finally{
         setLoading(false);
       }
+      
     };
+    
     getItem();
+    
   },[id]);
   
   
