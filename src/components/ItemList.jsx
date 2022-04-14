@@ -1,12 +1,13 @@
 import React from 'react'
 import Item from './Item';
+import '../components/ItemListContainer.css';
 
 
-export const ItemList = ({products}) => {
+const ItemList = ({producto}) => {
     
     return (
-        <div>
-        {products.map((product) =>(
+        <div className='card'>
+        {producto.map((product) =>(
             <Item key ={product.id} product ={product}/>
             
         ))}
@@ -14,3 +15,4 @@ export const ItemList = ({products}) => {
     )
 }
 
+export default ItemList;

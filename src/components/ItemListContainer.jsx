@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
 import itemsData from './api';
-import Item from './Item';
-import ItemList from './ItemList'
+import ItemList from './ItemList';
+import '../components/ItemListContainer.css';
 
-export const ItemListContainer =({}) => {
+
+const ItemListContainer =() => {
 
 
   const [product, setProduct] = useState({});
@@ -26,14 +27,15 @@ export const ItemListContainer =({}) => {
       }
     };
     getItem();
-  })
+  },[])
   
 
    
     return(
         <div className='card'>
-            {itemsData.map(e=>
-                <Item key={e.id} producto ={e} />) }
+            {itemsData?
+                <ItemList key={itemsData.id} producto = {itemsData}/> :
+                <div>Loading... </div> }
                 
         </div>
     )
@@ -42,3 +44,5 @@ export const ItemListContainer =({}) => {
    
 }
 
+
+export default ItemListContainer;

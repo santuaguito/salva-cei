@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from './components/NavBar';
-import { ItemListContainer } from './components/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer'
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import { ItemDeteailContainer } from './components/ItemDetailContainer';
+import ItemDeteailContainer from './components/ItemDetailContainer';
 import Cart from './components/cart';
 
 

@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const Item = ({producto}) => {
+const Item = ({product}) => {
 
     const [cart, setCart] = useState(false)
     const onAdd =()=> {
@@ -16,17 +16,17 @@ const Item = ({producto}) => {
     }
     return (      
         <div className="card">
-            <div key={producto.id} >
+            <div key={product.id} >
                     <div className="card-header">
-                        {producto.Descripcion}
+                        {product.Descripcion}
                     </div>
                     <div className="card-body">
-                        <img width="250" height="250" src={producto.Imagen} alt="foto" />
-                        {producto.Precio}
+                        <img width="250" height="250" src={product.Imagen} alt="foto" />
+                        {product.Precio}
                        
                     </div>
                     <div className="card-footer">
-                            <Link to={`/itemDetail/${producto.id}`}>
+                            <Link to={`/itemDetail/${product.id}`}>
                             <button className="btn btn-outline-primary btn-block">
                                 Detalle de producto 
                             </button>
@@ -40,7 +40,7 @@ const Item = ({producto}) => {
                                 Finalizar Compra
                             </button>
                         </Link>
-                    </div>:  <ItemCount Stock = {producto.Stock} onAdd = {()=> onAdd()} /> }
+                    </div>:  <ItemCount Stock = {product.Stock} onAdd = {()=> onAdd()} /> }
 
                   
                 </div>
@@ -48,5 +48,5 @@ const Item = ({producto}) => {
     )
 }
 
-export default Item
+export default Item;
 

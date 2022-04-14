@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import '../components/ItemListContainer.css';
 
 
-export const ItemDeteailContainer =({greeting}) => {
+const ItemDeteailContainer =({greeting}) => {
 
  
   const [product, setProduct] = useState([]);
@@ -38,16 +39,20 @@ export const ItemDeteailContainer =({greeting}) => {
     
     getItem();
     
+    
   },[id]);
   
+  
+
   
 
 
   return(
     <>
       
-      {product? <ItemDetail product={product}/> : <h1>Cargando...</h1>}
-    
+      {product? 
+      <ItemDetail Key={product.id} produdct={product}/>  : <h1>Cargando...</h1>}
+      
     
     </>
   );
@@ -56,3 +61,4 @@ export const ItemDeteailContainer =({greeting}) => {
 };
 
 
+export default ItemDeteailContainer;
