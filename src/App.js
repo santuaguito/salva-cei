@@ -8,6 +8,7 @@ import Cart from './components/cart';
 
 
 
+
 const App= () => {
   const branch ="Tienda Online";
   
@@ -16,9 +17,9 @@ const App= () => {
        <NavBar/>
       <Routes>
       <Route path="/" element={<ItemListContainer greating={ branch }/>}/>
-      <Route path='/' element={<ItemListContainer greating={ branch }/>}/>
-      <Route path='/itemDetail/:id' element={<ItemDeteailContainer/>}/>
-      <Route path ='/cart' element={Cart}/> 
+      {/* <Route path='/' element={<ItemListContainer greating={ branch }/>}/> */}
+      <Route path='/itemDetail/:Id' element={<ItemDeteailContainer/>}/>
+      <Route path ='/cart' element={<Cart/>}/> 
       {/* <Route path="/" element={Inicio}/> */}
       {/* <Route path="/" element={Nosotros}/>
       <Route path="/" element={Contacto}/> */}

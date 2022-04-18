@@ -23,6 +23,7 @@ const Item = ({product}) => {
                     <div className="card-body">
                         <img width="250" height="250" src={product.Imagen} alt="foto" />
                         {product.Precio}
+                        
                        
                     </div>
                     <div className="card-footer">

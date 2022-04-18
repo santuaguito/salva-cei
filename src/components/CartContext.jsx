@@ -1,54 +1,53 @@
-import {createContext, useState, useContext} from 'react'
+import {createContext, useState} from 'react'
 
 const StoreContext = createContext()
-const useCartContext = () => useContext(StoreContext)
-
-
-export const StoreProvider = ({children}) =>{
-
-    const [product, setProduct] = useState([])
+const StoreProvider =({children})=>{
+    const [products, setProducts] = useState([])
     const [isInCart, setIsInCart] = useState(false)
+    
 
-    const addProduct = (produdct, quantity) => {
-        const inCartList = product.find((i) => i.id === product.id)
+
+    const addProduct = (product, quantity) => {
+        const inCartList = products.find((i) => i.id === product.id)
         setIsInCart(true)
         if(inCartList){
             inCartList.quantity += quantity
-            setProduct([...product])
+            setProducts([...products, product])
         } else {
-            setProduct([...product, {...product, quantity}])
+            setProducts([...products, {...product, quantity}])
         }
     }
 
     const removeProduct = (id) => {
-        product.splice(
-            product.findIndex((i) => i.id === id), 1
+        products.splice(
+            products.findIndex((i) => i.id === id), 1
         )
-        setProduct([...product])
-        if(product.length === 0){
+        setProducts([...products])
+        if(products.length === 0){
             setIsInCart(false)
         }
     }
 
     const totalProductsPrice = () => {
-        return product.reduce((add, i) => (add += i.price * i.quantity), 0)
+        return products.reduce((add, i) => (add += i.price * i.quantity), 0)
     }
 
     const cartWidgetCount = () => {
-        return product.reduce((add,i) => (add += i.quantity), 0)
+        return products.reduce((add,i) => (add += i.quantity), 0)
     }
 
     const cleanListCart = () => {
-        setProduct([])
+        setProducts([])
     }
 
      
     return(
         <StoreContext.Provider 
-        value = {{ product, addProduct, removeProduct, totalProductsPrice, isInCart, cartWidgetCount, cleanListCart}}>
+        value = {{ products, addProduct, removeProduct, totalProductsPrice, isInCart, cartWidgetCount, cleanListCart}}>
             {children}
         </StoreContext.Provider>
     )
 
 }
-export default useCartContext;
+export {StoreProvider}
+export default StoreContext;

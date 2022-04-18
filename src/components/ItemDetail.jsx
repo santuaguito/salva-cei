@@ -1,15 +1,15 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import ItemCount from './ItemCount';
 import '../components/ItemListContainer.css';
-import {useLocation, Link} from 'react-router-dom';    
-import useCartContext from './CartContext';
+import {Link} from 'react-router-dom';
+import StoreContext from './CartContext';   
 
-const ItemDetail = ({}) =>{
+const ItemDetail = ({product}) =>{
     const stock = product.Stock;
     const [add, setAdd] = useState (false)
     const initial = 1
-    const [quantity, setQuantity] = useState(1);
-    const {addProduct} = useCartContext()
+    const [quantity, setQuantity] = useState(1)
+    const addProduct = useContext(StoreContext)
 
     const productQuantity = (count) => {
         setQuantity(count)
@@ -20,27 +20,18 @@ const ItemDetail = ({}) =>{
         setAdd(true)
     }
 
-    const [cart, setCart] = useState(false)
-    const onAdd =()=> {
-        setCart (true)
-    }
-
-    const {state} = useLocation();
-    const {product} = state || {}; 
     
-    console.log(product);
+   
 
     return product ? (
         <div className="card2">
-            <p>{product.Imagen}</p>
-            <p>{product.Descripcion}</p>
-            <p>{product.Stock}</p>
-            <ItemCount Stock = {stock}
-            initial ={initial}
-            onAdd={productQuantity} />
-
-            <button className="btn" onClick={addToCart}>Agregar al Carrito</button>
-            {add ? <Link to= {'/cart'}><button className="btn">Comprar Ahora</button></Link> : null}
+            <img width="250" height="250" src ={product.Imagen} alt="Sin imagen"></img>
+            <p>Descripcion{product.Descripcion}</p>
+            <p>Stock {product.Stock}</p>
+            <ItemCount Stock = {stock}initial ={initial}onAdd={productQuantity} />
+            {add ? <Link to= {'/cart'}><button className="btn">Comprar Ahora</button></Link> : 
+            <button className="btn" onClick={addToCart}>Agregar al Carrito</button>}
+            
         
         </div>
     ) : "Error";

@@ -25,7 +25,7 @@ const ItemDeteailContainer =({greeting}) => {
       try{
         const response = await fetch(URL);
         const data = await response.json();
-        const dataId = data.filter (element=>element.id === id)
+        const dataId = data.find (element=>element.id === id)
         setProduct(dataId);
         
        
@@ -41,17 +41,11 @@ const ItemDeteailContainer =({greeting}) => {
     
     
   },[id]);
-  
-  
-
-  
-
 
   return(
     <>
       
-      {product? 
-      <ItemDetail Key={product.id} produdct={product}/>  : <h1>Cargando...</h1>}
+      {product? <ItemDetail Key={product.id} product={product}/>  : <h1>Cargando...</h1>}
       
     
     </>
