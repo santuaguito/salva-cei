@@ -26,8 +26,8 @@ const ItemDetail = ({product}) =>{
     return product ? (
         <div className="card2">
             <img width="250" height="250" src ={product.Imagen} alt="Sin imagen"></img>
-            <p>Descripcion{product.Descripcion}</p>
-            <p>Stock {product.Stock}</p>
+            <p>{product.Descripcion}</p>
+            <p> {product.Stock}</p>
             <ItemCount Stock = {stock}initial ={initial}onAdd={productQuantity} />
             {add ? <Link to= {'/cart'}><button className="btn">Comprar Ahora</button></Link> : 
             <button className="btn" onClick={addToCart}>Agregar al Carrito</button>}

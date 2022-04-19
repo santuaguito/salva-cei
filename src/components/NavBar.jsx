@@ -20,7 +20,7 @@ function NavBar() {
                 
             </nav>
             
-           <CarWidget/>
+           
         </div>
         
     )

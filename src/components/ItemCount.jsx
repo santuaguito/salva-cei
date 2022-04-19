@@ -11,6 +11,7 @@ function ItemCount ({Stock, initial, onAdd})  {
     function sumar(){
         if(count >= 0 && count < Stock ){
             setCount(count + 1)
+            onAdd (count + 1 )
            
 
         }
@@ -19,6 +20,7 @@ function ItemCount ({Stock, initial, onAdd})  {
     function restar(){
         if (count>0) {
             setCount(count - 1)
+            onAdd (count - 1 )
                      
         }
     }
@@ -33,8 +35,7 @@ function ItemCount ({Stock, initial, onAdd})  {
             <label>{count}</label>
             <button onClick={restar}>-</button>
             <br/>
-            <button onClick ={()=>onAdd(count)}>Agregar Al carrito</button> 
-            
+           
         </div>
      
     )

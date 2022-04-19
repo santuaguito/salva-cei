@@ -1,12 +1,31 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 import './CarWidget.css'
-import CartLogo from './Img/carrito.png';
+import StoreContext from './CartContext';   
+import {Link} from 'react-router-dom'
 
 
-function CarWidget() {
+const CarWidget = () => {
+    const{cartWidgetCount} = StoreContext()
+
     return (
         <div>
-            <img src={CartLogo} alt="Imagen carrito" className ="Cart"/>
+            <Link to= {'/Cart'} >
+                <div className='cart-icon'>
+                    <FontAwesomeIcon icon={faShoppingBasket} />
+                    <span className="items">{cartWidgetCount()}</span>
+
+                </div>
+            
+            
+            
+            
+            </Link>
+
+
+
+            
         </div>
     )
 }
