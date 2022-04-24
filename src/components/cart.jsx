@@ -1,26 +1,38 @@
-import {useState} from "react";
-import {Link} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import StoreContext from './CartContext';
+import { Link } from 'react-router-dom'
+import { StoreProvider } from './CartContext'
 
 
-const Cart = () => {
-    const {products, removeItem, totalProductsPrice, cleanListCart} = useContext(StoreContext)
-    const [showForm, setShowForm] = useState(false)
-    const [orderId, setOrderId] = useState("")
-    const [confirmation, setConfirmation] = useState(false)
+const Cart = ( {condition = true} ) => {  
+
     
-    const handleRemove = (i) => {
-        removeItem(i.id)
-    }
+    const { inCartList, deleteFromCart, cleanListCart } = StoreProvider()
     
-    const handleFinalize = () =>{
-        setShowForm(true)
-    }
+    
+    console.log(inCartList)
+    return (
+        <div>
+
+            {inCartList.length === 0  ?   
+                <div>
+                    <h1>Agregar productos</h1>
+                    <Link to='/' >Ir a Comprar</Link>
+                </div>
+            : 
+                <div>
+                    {inCartList.map(resp => <div key={resp.item.id}>
+                        <h2>{resp.item.Descripcion}</h2>
+                        <button onClick={()=> deleteFromCart(resp)} > X </button>
+                    </div>
+                    )}
+                    <button onClick={() => cleanListCart()} >Vaciar Carrito</button>
+                </div>
+            }
+              
 
 
 
+        </div>
+    )
 }
 
-export default Cart;
+export default Cart
