@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 import './CarWidget.css'
@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 
 const CarWidget = () => {
-    const{cartWidgetCount} = StoreContext()
+    const{cartWidgetCount} = useContext (StoreContext)
 
     return (
         <div>

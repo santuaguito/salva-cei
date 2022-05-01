@@ -24,43 +24,19 @@ const ItemDeteailContainer =({greeting}) => {
     .then((result) => {
       setProduct(result.data());
     })
-
-
-
-
-
-
-
-    // const URL = 'https://mocki.io/v1/7f133f03-9231-4874-8622-4be9855c5ae4';
-
-    // const getItem = async() =>{
-    //   try{
-    //     const response = await fetch(URL);
-    //     const data = await response.json();
-    //     const dataId = data.find (element=>element.id === id)
-    //     setProduct(dataId);
-        
-       
-    //   }catch{
-    //     setError(true);
-    //   }finally{
-    //     setLoading(false);
-    //   }
-      
-    // };
-    
-    // getItem();
     
     
   },[id]);
+  
 
   return(
     <>
       
-      {product? <ItemDetail Key={product.id} product={product}/>  : <h1>Cargando...</h1>}
+      {product ?<ItemDetail Key={product.id} product={product}/>  : <h1>Cargando...</h1>}
       
     
     </>
+    
   );
 
 

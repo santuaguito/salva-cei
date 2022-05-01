@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import itemsData from './api';
+import { useParams } from "react-router-dom";
 import ItemList from './ItemList';
 import '../components/ItemListContainer.css';
 import {getDocs, collection, query, where} from 'firebase/firestore';
@@ -27,7 +28,7 @@ const ItemListContainer =() => {
       .then((result)=>{
         const docs = result.docs;
         const lista =docs.map(producto =>{
-          const id = porduct.id
+          const id = product.id
           const product ={
             id,
             ... product.data()

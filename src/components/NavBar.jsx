@@ -16,7 +16,7 @@ function NavBar() {
                         <li><button className ="boton"> <NavLink to ="/Nosotros">Nosotros</NavLink> </button></li>
                         <li><button className ="boton"><NavLink to="/Contacto">Contacto</NavLink></button></li>
                     </ul>
-       
+                    <CarWidget/>
                 
             </nav>
             
